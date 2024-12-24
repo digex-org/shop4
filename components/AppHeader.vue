@@ -2,7 +2,9 @@
   <header class="bg-white shadow-sm">
     <div class="px-8 flex items-center justify-between h-16">
       <!-- Logo -->
-      <div class="font-bold text-xl">LOGO</div>
+      <div class="font-bold text-xl">
+        <img src="/images/logo.png" alt="header logo" class="w-32">
+      </div>
 
       <div class="flex items-center justify-between">
         <!-- Search Bar -->
