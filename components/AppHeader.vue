@@ -2,9 +2,9 @@
   <header class="bg-white shadow-sm">
     <div class="px-8 flex items-center justify-between h-16">
       <!-- Logo -->
-      <div class="font-bold text-xl">
+      <a href="/" class="font-bold text-xl">
         <img src="/images/logo.png" alt="header logo" class="w-32">
-      </div>
+      </a>
 
       <div class="flex items-center justify-between">
         <!-- Search Bar -->
@@ -20,8 +20,8 @@
         <!-- Action Links -->
         <div class="flex items-center space-x-6">
           <a href="#" class="text-gray-600 hover:text-black">LOG IN</a>
-          <a href="#" class="text-gray-600 hover:text-black"><font-awesome-icon :icon="['far', 'heart']" /> SHOPPING BAG</a>
-          <a href="#" class="text-gray-600 hover:text-black">HELP</a>
+          <a href="/cart" class="text-gray-600 hover:text-black"><font-awesome-icon :icon="['far', 'heart']" /> SHOPPING BAG</a>
+          <a href="/help" class="text-gray-600 hover:text-black">HELP</a>
         </div>
 
         <!-- Hamburger Menu -->

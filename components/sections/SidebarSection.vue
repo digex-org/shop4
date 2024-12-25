@@ -12,45 +12,55 @@
         &times;
       </button>
     </div>
-    <!-- Sidebar Content -->
-    <div class="px-6">
-      <div v-for="(menu, index) in menus" :key="menu.id" class="relative">
-        <!-- Main Menu Item -->
-        <button
-            class="uppercase hover:text-gray-900 flex items-center w-full mb-4"
-            @click="toggleSubMenu(index)"
-        >
-          {{ menu.name }}
-          <span
-              class="ml-2 text-gray-500"
-              :class="{ 'rotate-180': activeMenu === index }"
+    <div class="px-6 flex flex-col justify-between">
+      <!-- Sidebar Content -->
+      <div>
+        <div v-for="(menu, index) in menus" :key="menu.id" class="relative">
+          <!-- Main Menu Item -->
+          <button
+              class="uppercase hover:text-gray-900 flex items-center w-full mb-4"
+              @click="toggleSubMenu(index)"
           >
-            <font-awesome-icon :icon="['fas', 'chevron-down']"/>
-          </span>
-        </button>
+            {{ menu.name }}
+            <span
+                class="ml-2 text-gray-500"
+                :class="{ 'rotate-180': activeMenu === index }"
+            >
+              <font-awesome-icon :icon="['fas', 'chevron-down']"/>
+            </span>
+          </button>
 
-        <!-- Submenu -->
-        <div
-            v-if="menu.subMenu && menu.subMenu.length > 0 && activeMenu === index"
-            class="pb-2"
-        >
-          <div v-for="sub in menu.subMenu" :key="sub.name" class="mb-4">
-            <!-- Submenu Section Title -->
-            <h4 class="font-semibold text-gray-700 text-sm">{{ sub.name }}</h4>
-            <!-- Submenu Links -->
-            <ul class="mt-2 space-y-1">
-              <li
-                  v-for="item in sub.subMenu"
-                  :key="item.name"
-                  class="text-gray-600 hover:text-gray-900"
-              >
-                <a href="#">{{ item.name }}</a>
-              </li>
-            </ul>
+          <!-- Submenu -->
+          <div
+              v-if="menu.subMenu && menu.subMenu.length > 0 && activeMenu === index"
+              class="pb-2"
+          >
+            <div v-for="sub in menu.subMenu" :key="sub.name" class="mb-4">
+              <!-- Submenu Section Title -->
+              <h4 class="font-semibold text-gray-700 text-sm">{{ sub.name }}</h4>
+              <!-- Submenu Links -->
+              <ul class="mt-2 space-y-1">
+                <li
+                    v-for="item in sub.subMenu"
+                    :key="item.name"
+                    class="text-gray-600 hover:text-gray-900"
+                >
+                  <a href="#">{{ item.name }}</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+      <div class="absolute bottom-8">
+        <p class="text-lg mb-8">GIFT CARD</p>
+        <div class="flex flex-col">
+          <p class="mb-2">Contact Us</p>
+          <p>+374 556 66</p>
+        </div>
+      </div>
     </div>
+
   </aside>
 </template>
 

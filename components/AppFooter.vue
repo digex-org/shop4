@@ -1,108 +1,107 @@
 <template>
-  <footer class="bg-[#EFEAFF] text-gray-800 py-8">
-    <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-5 gap-8">
-      <!-- Brand Section -->
-      <div>
-        <img src="/logo.png" alt="footer logo">
-        <p class="mt-4 text-sm">
-          Exquisite and contemporary girlswear since 2007. Designed with love in
-          England, worn across the world.
-        </p>
-        <div class="flex space-x-4 mt-4">
-          <a href="#" class="text-gray-500 hover:text-gray-800 text-xl">
-            <font-awesome-icon :icon="['fab', 'instagram']" />
-          </a>
-          <a href="#" class="text-gray-500 hover:text-gray-800 text-xl">
-            <font-awesome-icon :icon="['fab', 'facebook']" />
-          </a>
-          <a href="#" class="text-gray-500 hover:text-gray-800 text-xl">
-            <font-awesome-icon :icon="['fab', 'pinterest']" />
-          </a>
-        </div>
-      </div>
-
-      <!-- Shopping with Us -->
-      <div>
-        <h3 class="font-semibold text-sm mb-4">Shopping with Us</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:underline">Contact</a></li>
-          <li><a href="#" class="hover:underline">Delivery & Returns</a></li>
-          <li><a href="#" class="hover:underline">FAQ's</a></li>
-          <li><a href="#" class="hover:underline">Refer A Friend</a></li>
-        </ul>
-      </div>
-
-      <!-- About Us -->
-      <div>
-        <h3 class="font-semibold text-sm mb-4">About Us</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:underline">Blog</a></li>
-          <li><a href="#" class="hover:underline">Our Story</a></li>
-          <li><a href="#" class="hover:underline">Reviews</a></li>
-          <li><a href="#" class="hover:underline">Fan Gallery</a></li>
-        </ul>
-      </div>
-
-      <!-- More -->
-      <div>
-        <h3 class="font-semibold text-sm mb-4">More</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:underline">Gift Cards</a></li>
-          <li><a href="#" class="hover:underline">Refund Policy</a></li>
-          <li><a href="#" class="hover:underline">Rewards</a></li>
-          <li><a href="#" class="hover:underline">Terms of Service</a></li>
-        </ul>
-      </div>
-
-      <!-- Newsletter -->
-      <div>
-        <h3 class="font-semibold text-sm mb-4">Join the Family</h3>
-        <p class="text-sm mb-4">
-          Sign up to our newsletter for exclusive offers.
-        </p>
-        <div class="flex items-center justify-center">
-          <form class="flex rounded-full bg-white shadow-lg overflow-hidden">
-            <input
-                type="email"
-                placeholder="Email Address"
-                class="flex-grow px-4 py-3 text-sm text-gray-600 placeholder-gray-500 focus:outline-none w-1/2"
-            />
-            <button
-                type="submit"
-                class="bg-gray-800 text-white px-2 py-3 text-sm font-semibold focus:outline-none"
-            >
-              SIGN UP
+  <div class="bg-black text-white">
+    <!-- Hero Section -->
+    <!-- Footer Section -->
+    <footer class="py-12 px-6">
+      <section class="flex flex-col justify-start px-6 mb-32 w-1/2">
+        <div class="">
+          <p class="text-4xl font-light mb-4">Find yourself with us...</p>
+          <h1 class="text-6xl sm:text-9xl font-normal leading-tight mb-6">
+            Be absolutely <span class="font-extrabold">unique.</span>
+          </h1>
+          <p class="text-3xl font-light w-[28%]">
+            Put your network <span class="font-extrabold ">in safe hands</span>
+          </p>
+          <div class="mt-3">
+            <button class="bg-red-500 text-black px-6 py-3 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.8)] font-semibold  hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-300">
+              Get coolicons <span class="bg-white text-red-500 px-2 py-1 rounded text-xs ml-1">PRO</span>
             </button>
-          </form>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Logo and Social Links -->
+        <div class="space-y-6">
+          <img src="/images/Lissa.png" alt="footer logo">
+          <div class="flex space-x-4 text-sm">
+            <a href="#" class="hover:underline">INSTAGRAM</a>
+            <a href="#" class="hover:underline">FACEBOOK</a>
+            <a href="#" class="hover:underline">TIKTOK</a>
+            <a href="#" class="hover:underline">YOUTUBE</a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-start w-7/12">
+          <!-- Newsletter Subscription -->
+          <div class="mb-8">
+            <p class="font-semibold mb-4">Subscribe to our newsletter for daily industry insights.</p>
+            <form class="flex items-center border border-white">
+              <input
+                  type="email"
+                  placeholder="Email address*"
+                  class="bg-transparent text-white placeholder-gray-400 py-2 px-3 flex-1 focus:outline-none"
+              />
+            </form>
+          </div>
+          <!-- Help Section -->
+          <div class="flex justify-between items-baseline">
+            <div class="space-y-2">
+              <p class="text-sm font-semibold text-gray-600">HELP</p>
+              <ul class="space-y-1">
+                <li><a href="#" class="hover:underline">Contact Us</a></li>
+                <li><a href="#" class="hover:underline">FAQs</a></li>
+                <li><a href="#" class="hover:underline">Create Account</a></li>
+                <li><a href="#" class="hover:underline">Wishlist</a></li>
+                <li><a href="#" class="hover:underline">Registration</a></li>
+              </ul>
+            </div>
+            <!-- Company Section -->
+            <div class="space-y-2">
+            <p class="text-sm font-semibold text-gray-600">THE COMPANY</p>
+            <ul class="space-y-1">
+              <li><a href="#" class="hover:underline">About Us</a></li>
+              <li><a href="#" class="hover:underline">Login</a></li>
+              <li><a href="#" class="hover:underline">My Account</a></li>
+              <li><a href="#" class="hover:underline">Gift Card</a></li>
+              <li><a href="#" class="hover:underline">News/Blog</a></li>
+              <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+        <div class="text-center md:text-left">
+          <p class="font-semibold text-2xl">CALL US</p>
+          <div class="mb-8">
+            <p class="text-sm text-gray-600 mb-3">Phone:</p>
+            <p> <a href="tel:+37455202020" class="hover:underline">+374 55 20 20 20</a></p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 mb-3">Email:</p>
+            <p> <a href="mailto:info@digexllc.org" class="hover:underline">info@digexllc.org</a></p>
+          </div>
+          <p class="text-sm text-gray-400">Search for minimalist chair</p>
         </div>
       </div>
-    </div>
-
-    <div
-        class="border-t border-[#D9D4FF] mt-8 pt-4 text-center text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center max-w-7xl m-auto md:px-8 px-4"
-    >
-      <p class="mb-4 md:mb-0">
-        © 2024 Sweet Pin. All Rights Reserved.
-        <a href="#" class="hover:underline">Cookie Policy</a> /
-        <a href="#" class="hover:underline">Privacy Policy</a> /
-        <a href="#" class="hover:underline">Terms of Service</a>
-      </p>
-      <div class="flex justify-center space-x-4 text-lg">
-        <font-awesome-icon class="bg-white px-1" :icon="['fab', 'apple-pay']" />
-        <font-awesome-icon class="bg-white px-1" :icon="['fab', 'google-pay']" />
-        <font-awesome-icon class="bg-white" :icon="['fab', 'cc-visa']" />
-        <font-awesome-icon class="bg-white" :icon="['fab', 'cc-amex']" />
-        <font-awesome-icon class="bg-white" :icon="['fab', 'shopify']" />
-        <font-awesome-icon class="bg-white" :icon="['fab', 'cc-paypal']" />
+      <!-- Contact Information -->
+      <div class="mt-12 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+        <!-- Copyright and Language Selector -->
+        <div class="container !max-w-[82rem] flex w-full justify-between md:text-right">
+          <p class="text-sm text-gray-400 text-start">
+            Privacy Policy<br />
+            Copyright © 2024 DIGEX LLC Inc. Yerevan, Armenia<br />
+            All rights reserved.
+          </p>
+          <p class="text-sm mt-2">
+            English (UK)
+          </p>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </template>
-
 <script setup>
-// Ensure you have the Font Awesome library added to your project
+// No additional script logic required
 </script>
-
-<style>
-/* Additional styles for customization */
+<style scoped>
+/* Optional: Scoped styles */
 </style>
