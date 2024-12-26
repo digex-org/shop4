@@ -29,7 +29,6 @@
           class="text-gray-600 ml-8 flex flex-col items-center hover:text-black leading-none focus:outline-none text-xs"
           @click="$emit('toggle-sidebar')"
       >
-        MENU
         <font-awesome-icon :icon="['fas', 'bars']" class="text-3xl font-light"/>
       </button>
       </div>

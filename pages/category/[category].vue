@@ -1,6 +1,9 @@
 <template>
   <div class="container mx-auto py-8">
     <p class="text-center font-light text-2xl uppercase">{{ category }}</p>
+    <div class="image-section mb-4 h-1/4 w-full">
+      <img src="/images/banners/shopBanner.png" alt="shop banner" class="w-full h-[80rem] object-cover">
+    </div>
     <div class="flex justify-between align-baseline">
       <!-- Selected Categories -->
       <div class="flex flex-col">
@@ -42,9 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="image-section">
-      <img src="/images/banners/shopBanner.png" alt="shop banner">
-    </div>
+
     <div class="flex flex-col lg:flex-row relative">
       <transition name="slide">
         <FiltersSection
