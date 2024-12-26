@@ -1,5 +1,5 @@
 <template>
-  <section class="p-4">
+  <section>
     <!-- No Products Message -->
     <div v-if="paginatedProducts.length === 0" class="text-center text-gray-500">
       No products match your filters.
@@ -7,7 +7,7 @@
 
     <!-- Product Grid/List -->
     <div v-else>
-      <div :class="viewMode === 'list' ? 'flex flex-col items-center gap-4 p-4 border rounded-lg hover:shadow-md' : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6'">
+      <div :class="viewMode === 'list' ? 'flex flex-col items-center gap-4 p-4 border rounded-lg hover:shadow-md' : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-0'">
         <ProductCard
             v-for="product in paginatedProducts"
             :key="product.id"

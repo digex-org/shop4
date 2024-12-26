@@ -16,7 +16,7 @@
       <h2 class="text-9xl font-semibold mb-6 font-[Playfair]">COLLECTION</h2>
       <div class="flex items-end justify-end">
         <a
-            href="/shop"
+            href="/category/men"
             class="inline-block mr-4 px-4 text-xl font-medium text-black bg-white rounded-full hover:bg-gray-200 font-[Playfair]"
         >
           Go to SHOP

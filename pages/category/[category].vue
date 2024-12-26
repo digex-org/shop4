@@ -1,12 +1,9 @@
 <template>
   <div class="container mx-auto py-8">
+    <p class="text-center font-light text-2xl uppercase">{{ category }}</p>
     <div class="flex justify-between align-baseline">
       <!-- Selected Categories -->
       <div class="flex flex-col">
-        <h1 v-if="selectedCategoryNames.length" class="text-sm text-gray-600 mb-5 ml-2">
-          Selected Categories: <span class="font-semibold">{{ selectedCategoryNames }}</span>
-        </h1>
-
         <button
             @click="toggleFilters"
             class="flex items-center justify-center gap-2 mb-4 p-2 border border-gray-300 rounded-md hover:bg-gray-100 ml-2"
@@ -45,7 +42,9 @@
         </div>
       </div>
     </div>
-
+    <div class="image-section">
+      <img src="/images/banners/shopBanner.png" alt="shop banner">
+    </div>
     <div class="flex flex-col lg:flex-row relative">
       <transition name="slide">
         <FiltersSection
@@ -56,7 +55,7 @@
       </transition>
 
       <!-- Product Grid Section -->
-      <div :class="{ 'w-full': !showFilters, 'lg:w-3/4': showFilters }" class="p-4">
+      <div :class="{ 'w-full': !showFilters, 'lg:w-3/4': showFilters }">
         <ProductGridSection :products="sortedProducts" :view-mode="viewMode" />
       </div>
     </div>
@@ -70,6 +69,9 @@ import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 const showFilters = ref(false); // Toggle filter visibility
 const selectedSortOption = ref("recommended"); // Default sorting
 const viewMode = ref("grid"); // Default view mode: grid
+const route = useRoute();
+
+const category = route.params.category;
 
 const appliedFilters = ref({
   categories: [],

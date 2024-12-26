@@ -6,7 +6,7 @@
     >
       <!-- Product Image Slider -->
       <div class="overflow-hidden relative">
-        <div class="relative w-full h-64">
+        <div class="relative w-full h-[32rem]">
           <img
               v-for="(image, index) in product.images"
               :key="index"
@@ -15,30 +15,11 @@
               :class="[
               'absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md transition-transform duration-300',
               currentImageIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0',
-              viewMode === 'grid' ? 'w-full h-64 mb-4' : 'mr-5 h-32'
+              viewMode === 'grid' ? 'w-full mb-4' : 'mr-5 h-32'
             ]"
               loading="lazy"
           />
         </div>
-      </div>
-
-      <!-- Product Info -->
-      <div class="text-start" :class="viewMode === 'list' ? 'flex-1' : ''">
-        <h3
-            class="mt-4 text-sm font-bold uppercase"
-            :class="viewMode === 'list' ? 'mt-0' : ''"
-        >
-          {{ product.title }}
-        </h3>
-        <p class="text-sm font-bold">
-          <span
-              v-if="product.originalPrice"
-              class="text-gray-400 ml-2 line-through"
-          >
-            {{ product.originalPrice }} USD
-          </span>
-          {{ product.price }} USD
-        </p>
       </div>
     </NuxtLink>
     <button
@@ -55,43 +36,66 @@
     </button>
     <!-- Action Buttons -->
     <div
-        class="absolute bottom-16 left-2 flex items-center opacity-0 group-hover:opacity-100 transition-transform duration-300 flex-row"
+        class="absolute p-2 bottom-0 left-0 bg-white justify-between w-full z-10 flex items-center opacity-0 group-hover:opacity-100 transition-transform duration-300 flex-row"
     >
-      <button
-          @click.stop="addToWishlist(product)"
-          class="transparent p-2 rounded-full shadow-lg hover-icon"
-      >
-        <font-awesome-icon :icon="['fas', 'heart']" class="text-black"></font-awesome-icon>
-      </button>
-
-      <button
-          @click.stop="addToBasket(product)"
-          class="transparent p-2 rounded-full shadow-lg hover-icon"
-      >
-        <font-awesome-icon :icon="['fas', 'shopping-cart']"></font-awesome-icon>
-      </button>
-
-      <button
-          @click.stop="openQuickView(product)"
-          class="transparent p-2 rounded-full shadow-lg hover-icon"
-      >
-        <font-awesome-icon :icon="['fas', 'eye']"></font-awesome-icon>
-      </button>
-
-        <button
-            @click.stop="addToComparison(product)"
-            class="transparent p-2 rounded-full shadow-lg hover-icon"
+      <div class="text-start" :class="viewMode === 'list' ? 'flex-1' : ''">
+        <h3
+            class="mt-4 text-sm font-bold uppercase"
+            :class="viewMode === 'list' ? 'mt-0' : ''"
         >
-          <font-awesome-icon :icon="['fas', 'arrow-right-arrow-left']" />
+          {{ product.title }}
+        </h3>
+        <div v-if="product.sizes">
+          <div class="flex gap-2">
+            <p v-for="size in product.sizes"> {{ size }} </p>
+          </div>
+        </div>
+        <p class="text-sm font-bold">
+          <span
+              v-if="product.originalPrice"
+              class="text-gray-400 ml-2 line-through"
+          >
+            {{ product.originalPrice }} USD
+          </span>
+          {{ product.price }} USD
+        </p>
+      </div>
+      <div>
+        <button
+            @click.stop="addToBasket(product)"
+            class="transparent p-2 rounded-full hover-icon"
+        >
+          <font-awesome-icon :icon="['fas', 'shopping-cart']"></font-awesome-icon>
+        </button>
+        <button
+            @click.stop="addToWishlist(product)"
+            class="transparent p-2 rounded-full hover-icon"
+        >
+          <font-awesome-icon :icon="['fas', 'heart']" class="text-black"></font-awesome-icon>
         </button>
       </div>
-    </div>
 
-    <QuickViewModal
-        v-if="showQuickView"
-        :item="selectedItem"
-        @close="closeQuickView"
-    />
+<!--      <button-->
+<!--          @click.stop="openQuickView(product)"-->
+<!--          class="transparent p-2 rounded-full shadow-lg hover-icon"-->
+<!--      >-->
+<!--        <font-awesome-icon :icon="['fas', 'eye']"></font-awesome-icon>-->
+<!--      </button>-->
+
+<!--      <button-->
+<!--        @click.stop="addToComparison(product)"-->
+<!--        class="transparent p-2 rounded-full shadow-lg hover-icon"-->
+<!--    >-->
+<!--      <font-awesome-icon :icon="['fas', 'arrow-right-arrow-left']" />-->
+<!--    </button>-->
+    </div>
+  </div>
+
+  <QuickViewModal
+      v-if="showQuickView"
+      :item="selectedItem"
+      @close="closeQuickView"
+  />
 </template>
 
 <script setup>
