@@ -37,7 +37,7 @@
           >
             <div v-for="sub in menu.subMenu" :key="sub.name" class="mb-4">
               <!-- Submenu Section Title -->
-              <h4 class="font-semibold text-gray-700 text-sm">{{ sub.name }}</h4>
+              <h4 class="font-semibold text-gray-700 text-sm"><a :href="sub.name">{{ sub.name }}</a></h4>
               <!-- Submenu Links -->
               <ul class="mt-2 space-y-1">
                 <li
@@ -45,7 +45,7 @@
                     :key="item.name"
                     class="text-gray-600 hover:text-gray-900"
                 >
-                  <a href="#">{{ item.name }}</a>
+                  <a href="">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
