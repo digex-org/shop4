@@ -6,29 +6,30 @@
     >
       <!-- Product Image Slider -->
       <div class="overflow-hidden relative">
-        <div class="relative w-full h-[32rem]">
+        <div
+            class="relative w-full"
+            :class="viewMode === 'list' ? 'h-32 w-32 mr-5' : 'h-[32rem]'"
+        >
+          <!-- Render only the current image -->
           <img
-              v-for="(image, index) in product.images"
-              :key="index"
-              :src="image"
+              v-if="product.images && product.images[currentImageIndex]"
+              :src="product.images[currentImageIndex]"
               alt="Product Image"
-              :class="[
-              'absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md transition-transform duration-300',
-              currentImageIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0',
-              viewMode === 'grid' ? 'w-full mb-4' : 'mr-5 h-32'
-            ]"
-              loading="lazy"
+              class="w-full h-full object-cover rounded-lg shadow-md transition-opacity duration-300"
           />
         </div>
       </div>
     </NuxtLink>
+    <!-- Navigation Buttons for Slider (only in grid view) -->
     <button
+        v-if="viewMode === 'grid' && product.images.length > 1"
         @click.stop="prevImage"
         class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white rounded-full p-1"
     >
       <font-awesome-icon icon="chevron-left" />
     </button>
     <button
+        v-if="viewMode === 'grid' && product.images.length > 1"
         @click.stop="nextImage"
         class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white rounded-full p-1"
     >
@@ -39,15 +40,12 @@
         class="absolute p-2 bottom-0 left-0 bg-white justify-between w-full z-10 flex items-center opacity-0 group-hover:opacity-100 transition-transform duration-300 flex-row"
     >
       <div class="text-start" :class="viewMode === 'list' ? 'flex-1' : ''">
-        <h3
-            class="mt-4 text-sm font-bold uppercase"
-            :class="viewMode === 'list' ? 'mt-0' : ''"
-        >
+        <h3 class="mt-4 text-sm font-bold uppercase" :class="viewMode === 'list' ? 'mt-0' : ''">
           {{ product.title }}
         </h3>
         <div v-if="product.sizes">
           <div class="flex gap-2">
-            <p v-for="size in product.sizes"> {{ size }} </p>
+            <p v-for="size in product.sizes" :key="size"> {{ size }} </p>
           </div>
         </div>
         <p class="text-sm font-bold">
@@ -74,20 +72,6 @@
           <font-awesome-icon :icon="['fas', 'heart']" class="text-black"></font-awesome-icon>
         </button>
       </div>
-
-<!--      <button-->
-<!--          @click.stop="openQuickView(product)"-->
-<!--          class="transparent p-2 rounded-full shadow-lg hover-icon"-->
-<!--      >-->
-<!--        <font-awesome-icon :icon="['fas', 'eye']"></font-awesome-icon>-->
-<!--      </button>-->
-
-<!--      <button-->
-<!--        @click.stop="addToComparison(product)"-->
-<!--        class="transparent p-2 rounded-full shadow-lg hover-icon"-->
-<!--    >-->
-<!--      <font-awesome-icon :icon="['fas', 'arrow-right-arrow-left']" />-->
-<!--    </button>-->
     </div>
   </div>
 
@@ -99,8 +83,7 @@
 </template>
 
 <script setup>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { useCart } from "~/composables/useCart.js";
+import { ref } from "vue";
 
 const props = defineProps({
   product: {
