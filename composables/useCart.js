@@ -33,7 +33,7 @@ export const useCart = () => {
         if (existingItem) {
             existingItem.quantity += item.quantity;
         } else {
-            state.cartItems.push({ ...item });
+            state.cartItems.push({ ...item, quantity: item.quantity || 1 });
         }
     };
 

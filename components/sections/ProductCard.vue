@@ -144,7 +144,7 @@ const addToComparison = (product) => {
 
 const { addItem } = useCart();
 const addToBasket = (product) => {
-  addItem({ ...product, image: product.image });
+  addItem({ ...product, image: product.image, quantity: 1 });
 };
 </script>
 
